@@ -14,24 +14,171 @@
 //
 // ============================================================================
 
-// Inclusão das bibliotecas padrão necessárias para entrada/saída, alocação de memória, manipulação de strings e tempo.
+#include <stdio.h>
+#include <string.h>
 
-// --- Constantes Globais ---
-// Definem valores fixos para o número de territórios, missões e tamanho máximo de strings, facilitando a manutenção.
+// Definição da estrutura para representar um território
 
-// --- Estrutura de Dados ---
-// Define a estrutura para um território, contendo seu nome, a cor do exército que o domina e o número de tropas.
+typedef struct Territorio {
+    char nome[50];
+    char cor[10];
+    int tropas;
+};
 
-// --- Protótipos das Funções ---
-// Declarações antecipadas de todas as funções que serão usadas no programa, organizadas por categoria.
-// Funções de setup e gerenciamento de memória:
-// Funções de interface com o usuário:
-// Funções de lógica principal do jogo:
-// Função utilitária:
+// Comaço do Script
 
-// --- Função Principal (main) ---
-// Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
 int main() {
+
+    // Cadastro de territórios
+
+    printf("Iniciando Cadastro dos Territórios...\n");
+
+    struct Territorio t1;
+
+    // Contato com o usuário para obter os dados do território
+
+    printf("\nDigite o nome do primeiro território: ");
+
+    // fgets é melhor para strings com espaços. Sizeof para dar o tamanho
+    // correto(50). E stdin para ler somente o inoput do usuário e não do
+    // arquivo.
+
+    fgets(t1.nome, sizeof(t1.nome), stdin);
+
+    // Remover o caractere de nova linha adicionado pelo fgets
+
+    t1.nome[strcspn(t1.nome, "\n")] = '\0';
+
+    printf("\n---------------------------------------\n");
+
+    printf("\nDigite a cor do primeiro território: ");
+    fgets(t1.cor, sizeof(t1.cor), stdin);
+    t1.cor[strcspn(t1.cor, "\n")] = '\0';
+
+    printf("\n---------------------------------------\n");
+
+    printf("\nDigite o número de tropas no primeiro território: ");
+
+    // Uso de %d porque será número inteiro
+    scanf("%d", &t1.tropas);
+
+    // Limpar o buffer após scanf
+    while (getchar() != '\n')
+	;
+
+    printf("\n\n\nIniciando Cadastro do Segundo Território...\n");
+
+    struct Territorio t2;
+
+    printf("\nDigite o nome do segundo território: ");
+    fgets(t2.nome, sizeof(t2.nome), stdin);
+    t2.nome[strcspn(t2.nome, "\n")] = '\0';
+
+    printf("\n---------------------------------------\n");
+
+    printf("\nDigite a cor do segundo território: ");
+    fgets(t2.cor, sizeof(t2.cor), stdin);
+    t2.cor[strcspn(t2.cor, "\n")] = '\0';
+
+    printf("\n---------------------------------------\n");
+
+    printf("\nDigite o número de tropas no segundo território: ");
+    scanf("%d", &t2.tropas);
+
+    // Limpar o buffer após scanf
+    while (getchar() != '\n')
+	;
+
+    printf("\n\n\nIniciando Cadastro do Terceiro Território...\n");
+
+    struct Territorio t3;
+
+    printf("\nDigite o nome do terceiro território; ");
+    fgets(t3.nome, sizeof(t3.nome), stdin);
+    t3.nome[strcspn(t3.nome, "\n")] = '\0';
+
+    printf("\n---------------------------------------\n");
+
+    printf("\nDigite a cor do terceiro território: ");
+    fgets(t3.cor, sizeof(t3.cor), stdin);
+    t3.cor[strcspn(t3.cor, "\n")] = '\0';
+
+    printf("\n---------------------------------------\n");
+
+    printf("\nDigite o número de tropas no terceiro território: ");
+    scanf("%d", &t3.tropas);
+
+    // Limpar o buffer após scanf
+    while (getchar() != '\n')
+	;
+
+    printf("\n\n\nIniciando Cadastro do Quarto Território...\n");
+
+    struct Territorio t4;
+
+    printf("\nDigite o nome do quarto território; ");
+    fgets(t4.nome, sizeof(t4.nome), stdin);
+    t4.nome[strcspn(t4.nome, "\n")] = '\0';
+
+    printf("\n---------------------------------------\n");
+
+    printf("\nDigite a cor do quarto território: ");
+    fgets(t4.cor, sizeof(t4.cor), stdin);
+    t4.cor[strcspn(t4.cor, "\n")] = '\0';
+
+    printf("\n---------------------------------------\n");
+
+    printf("\nDigite o número de tropas no quarto território: ");
+    scanf("%d", &t4.tropas);
+
+    // Limpar o buffer após scanf
+    while (getchar() != '\n')
+	;
+
+    printf("\n\n\nIniciando Cadastro do Quinto Território...\n");
+
+    struct Territorio t5;
+
+    printf("\nDigite o nome do quinto território; ");
+    fgets(t5.nome, sizeof(t5.nome), stdin);
+    t5.nome[strcspn(t5.nome, "\n")] = '\0';
+
+    printf("\n---------------------------------------\n");
+
+    printf("\nDigite a cor do quinto território: ");
+    fgets(t5.cor, sizeof(t5.cor), stdin);
+    t5.cor[strcspn(t5.cor, "\n")] = '\0';
+
+    printf("\n---------------------------------------\n");
+
+    printf("\nDigite o número de tropas no quinto território: ");
+    scanf("%d", &t5.tropas);
+
+    // Limpar o buffer após scanf
+    while (getchar() != '\n')
+	;
+
+    printf("\n\n\nCadastro concluído!\n");
+
+    // Exibição dos territórios cadastrados
+
+    printf("\n\nExibindo os territórios cadastrados:\n");
+
+    printf("\nTerritório 1 :\n\nNome: %s\n\nCor: %s\n\nNúmero de Tropas: %d\n", t1.nome,
+           t1.cor, t1.tropas);
+    printf("\nTerritório 2 :\n\nNome: %s\n\nCor: %s\n\nNúmero de Tropas: %d\n", t2.nome,
+           t2.cor, t2.tropas);
+    printf("\nTerritório 3 :\n\nNome: %s\n\nCor: %s\n\nNúmero de Tropas: %d\n", t3.nome,
+           t3.cor, t3.tropas);
+    printf("\n Território 4 :\n\nNome: %s\n\nCor: %s\n\nNúmero de Tropas: %d\n", t4.nome,
+           t4.cor, t4.tropas);
+    printf("\nTerritório 5 :\n\nNome: %s\n\nCor: %s\n\nNúmero de Tropas: %d\n", t5.nome,
+           t5.cor, t5.tropas);
+
+    printf("\n---------------------------------------");
+
+    return 0;
+}
     // 1. Configuração Inicial (Setup):
     // - Define o locale para português.
     // - Inicializa a semente para geração de números aleatórios com base no tempo atual.
@@ -50,9 +197,6 @@ int main() {
 
     // 3. Limpeza:
     // - Ao final do jogo, libera a memória alocada para o mapa para evitar vazamentos de memória.
-
-    return 0;
-}
 
 // --- Implementação das Funções ---
 
